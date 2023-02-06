@@ -3,24 +3,23 @@
 namespace App\Controllers;
 
 use App\Basecontroller;
-use App\Helpers\Session;
 use App\Models\FormValidation;
 use App\Models\Database;
 use App\Models\User;
+use App\Helpers\Session;
 use App\Request;
 use Exception;
 
 
-class LoginController extends BaseController {
-    public function index( Request $request)
-    {
+class RegisterController extends BaseController {
+    public function index(Request $request) {
 
         if($this->user->isLoggedIn()) {
             $this->redirectTo('/');
         }
 
         if ($request->getMethod() === 'GET') {
-            $this->view->render('login/index');
+            $this->view->render('register/index');
             return;
         }
 
@@ -31,25 +30,36 @@ class LoginController extends BaseController {
         $validation = new FormValidation($formInput, $this->db);
 
          $validation->setRules([
-             'email' => 'required|email|min:3|max:64', // mail ausgeklammert
+             'username' => 'required|min:3|max:64|available:users',
+             'email' => 'required|email|available:users', // mail ausgeklammert
              'password' => 'required|min:6|max:64',
+             'passwordAgain' => 'required|matches:password'
+         ]);
+
+         $validation->setMessages([
+            "passwordAgain.matches" => "You didn't repeat the password correctly"
          ]);
 
 
          $validation->validate();
 
          if ($validation->fails()) {
-             $this->view->render('login/index', [
+             $this->view->render('register/index', [
                  'errors' => $validation->getErrors()
              ]);
          }
 
 
         // User Login
+
          try {
-             $this->user->login($formInput['email'], $formInput['password']);
-             Session::flash('success', 'Yuu have been successfully signed in.');
-             $this->redirectTo('/dashboard');
+             $this->user->register(
+                 $formInput['username'],
+                 $formInput['email'],
+                 $formInput['password']
+             );
+             Session::flash('success', 'Your Account is created. Bitte einloggen habibi');
+             $this->redirectTo('/login');
          } catch (Exception $e){
              $this->view->render('login/index', [
                  'errors' => [

@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Models;
+
+use PDO;
+use PDOStatement;
+use PDOException;
+
 class Database {
     private string $host = 'localhost';
     private string $databaseName = 'polyroid';
@@ -28,6 +34,8 @@ class Database {
     {
         $this->statement = $this->pdo->prepare($sql);
         $this->statement->execute($values);
+
+        return $this;
     }
 
     public function count(): int

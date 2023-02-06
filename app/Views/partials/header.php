@@ -8,3 +8,22 @@
         <title>Polyroid</title>
     </head>
     <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Dashboard</a></li>
+                    <li><a href="/profile">Profil</a></li>
+                    <?php if ($user->isLoggedIn()): ?>
+                        <li><a href="/post/create">Post erstellen</a></li>
+                        <li><a href="/logout">Ausloggen</a></li>
+                    <?php else: ?>
+                        <li><a href="/register">Registrieren</a></li>
+                        <li><a href="/login">Anmelden</a></li>
+                    <?php endif; ?>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="messages">
+            <?php echo $session::flash('success'); ?>
+        </div>

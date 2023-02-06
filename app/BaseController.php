@@ -1,13 +1,27 @@
 <?php
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . 'View.php';
+namespace App;
+
+use App\View;
+use App\Models\Database;
+use App\Models\User;
+
 
 class BaseController {
-    protected  View $view;
+    protected Database $db;
+    protected User $user;
+    protected View $view;
 
     public function __construct()
     {
-        $this->view = new View;
+        $this->db = new Database;
+        $this->user = new User($this->db);
+        $this->view = new View($this->user);
+    }
+
+    protected function redirectTo(string $path) {
+        header('Location: ' . $path);
+        exit();
     }
 
 }

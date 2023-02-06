@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Models;
+
+use App\Models\Database;
+use Exception;
+use App\Helpers\Session;
+
 class User {
 
     private Database $db;
@@ -18,14 +24,16 @@ class User {
 // If they were, saves their informations in objects properties
     public function find(int|string $identifier): bool
     {
-        $sql = "SELECT * FROM `users` WHERE `email` = :identifier";
-        $this->db->query($sql, [ 'identifier' => $identifier ]);
 
-        if (!$this->db->count()) {
+        $column = is_int($identifier) ? 'id' : 'email';
+        $sql = "SELECT * FROM `users` WHERE `{$column}` = :identifier";
+        $userQuery = $this->db->query($sql, [ 'identifier' => $identifier ]);
+
+        if (!$userQuery->count()) {
             return false;
         }
 
-        $userData = $this->db->results()[0];
+        $userData = $userQuery->results()[0];
 
         foreach ($userData as $column => $value) {
             $this->{$column} = $value;
@@ -35,13 +43,26 @@ class User {
     }
 
 
-    public function register(string $username, string $email, string $password)
+    public function register(string $username, string $email, string $password): void
     {
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT, ['cost' => 10]);
 
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $sql = "
+            INSERT INTO `users`
+            (`username`, `email`, `password`, `joined_at`)
+            VALUES (:username, :email , :password, :joinedAt)
+            
+        ";
+
+        $this->db->query($sql, [
+            'username'  => $username,
+            'email'     => $email,
+            'password'  => $passwordHash,
+            'joinedAt'  => time()
+        ]);
     }
 
-    public function login(string $email, string $password)
+    public function login(string $email, string $password): void
     {
         // Abgleich mit DB
         // Versuchen User zu finden
@@ -49,13 +70,36 @@ class User {
             throw new Exception('The emailadress could not be found.');
         }
 
-//        // Passwörter abgleichen
-//        if (!password_verify($password, $this->password) ) {
-//            throw new Exception('Passwort falsch habibi.');
-//        }
+        // Passwörter abgleichen
+        if (!password_verify($password, $this->password) ) {
+            throw new Exception('Passwort falsch habibi.');
+        }
 
         // Session erstellen
-        $_SESSION['userId'] = (int) $this->id;
+        Session::set('userId', (int) $this->id);
+
+    }
+
+    public function logout(): void {
+        Session::delete('userId');
+    }
+
+    public function isLoggedIn(): bool
+    {
+        return Session::exists('userId');
+    }
+
+    public function getId(): int
+    {
+        if (isset($this->id)) {
+            return (int) $this->id;
+        }
+
+        return Session::get('userId');
+    }
+
+    public function getUsername(): string {
+        return $this->username;
     }
 
 }

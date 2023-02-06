@@ -1,8 +1,21 @@
 <?php
 
-class HomeController {
+namespace App\Controllers;
+
+use App\BaseController;
+use App\Models\Database;
+use App\Models\User;
+
+class HomeController extends BaseController {
     public function index() {
-        dd($_SESSION);
+
+        if ($this->user->isLoggedIn()) {
+            $this->user->find($this->user->getId());
+        }
+
+        $this->view->render('home/index',[
+            'user' => $this->user
+        ] );
     }
 }
 
