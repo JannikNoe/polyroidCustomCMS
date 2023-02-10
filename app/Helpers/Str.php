@@ -2,6 +2,8 @@
 
 namespace App\Helpers;
 
+use http\Exception;
+
 class Str {
     public static function slug(string $string)
     {

@@ -8,6 +8,9 @@ use App\Models\User;
 use App\Request;
 use Exception;
 use App\Models\Post;
+use App\Models\FileValidation;
+use App\Helpers\Session;
+
 
 class PostsController extends BaseController {
     public function index() {
@@ -36,24 +39,43 @@ class PostsController extends BaseController {
 
         $formValidation->validate();
 
-        if ($formValidation->fails()) {
+        $fileInput = $request->getInput('file');
+        $fileValidation = new FileValidation($fileInput);
 
+        $fileValidation->setRules([
+
+            'image' => 'type:image|maxsize:2097152'
+
+        ]);
+
+        $fileValidation->validate();
+
+        if ($formValidation->fails() || $fileValidation->fails()){
             $this->view->render('posts/create', [
-
+                'errors' => array_merge(
+                    $formValidation->getErrors(),
+                    $formValidation->getErrors()
+                )
             ]);
         }
 
         try {
             $post = new Post($this->db);
 
-            $post->create($this->user->getId(),
+            $image = isset($fileInput['image']) && $fileInput['image']['size'] > 0 ? $fileInput['image'] : null;
+
+            $post->create(
+                $this->user->getId(),
                 $formInput['title'],
-                $formInput['body']
+                $formInput['body'],
+                $image
             );
 
-            Session::flash('success', 'Your Post has been created');
+            Session::flash('success', 'Your post has been created');
             $this->redirectTo('/dashboard');
         } catch (Exception $e) {
+            echo 'Nix ists';
+            d($e);
 
         }
     }

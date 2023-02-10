@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models;
 use App\Helpers\Str;
+use App\Models\FileStorage;
 
 
 class Post {
@@ -14,7 +15,7 @@ class Post {
         $this->db = $db;
     }
 
-    public function create($userId, $title, $body) {
+    public function create(int $userId, string $title, string $body, array $image = null) {
 
         $sql = "
             INSERT INTO `posts`
@@ -33,6 +34,29 @@ class Post {
             'createdAt' => time()
         ]);
 
+        if($image === null) return;
+
+        $fileStorage = new FileStorage($image);
+        $fileStorage->saveIn('images');
+        $imageName = $fileStorage->getGeneratedName();
+
+        $sql = "SELECT MAX(`id`) AS 'id' FROM `posts` WHERE `user_id` = :user_id";
+
+        $postQuery = $this->db->query($sql , [
+            'user_id' => $userId
+        ]);
+
+        $postId = $postQuery->results()[0]['id'];
+
+        $sql = "
+            INSERT INTO `posts_images`
+            (`post_id`, `path`)
+            VALUES(:post_id, :path)";
+        
+            $this->db->query($sql, [
+                'post_id' => $postId,
+                'path' => $imageName
+            ]);
 
     }
 }
