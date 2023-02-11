@@ -10,7 +10,15 @@ class DashboardController extends BaseController {
             $this->redirectTo('/login');
         }
 
-        $this->view->render('dashboard/index');
+        $this->user->find($this->user->getId());
+
+        $posts = $this->user->getPosts();
+
+//        dd($posts);
+
+        $this->view->render('dashboard/index', [
+            'posts' => $posts
+        ]);
     }
 
 

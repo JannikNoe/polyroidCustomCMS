@@ -13,8 +13,26 @@ use App\Helpers\Session;
 
 
 class PostsController extends BaseController {
-    public function index() {
+    public function index(Request $request) {
 
+        if (!isset($request->getInput('page')[0])) {
+            Session::flash('error', 'The page you were trying to acces does not exists');
+            $this->redirectTo('/');
+
+        }
+
+        $id = $request->getInput('page')[0];
+
+        $post = new Post($this->db);
+
+        if (!$post->find($id)) {
+            Session::flash('error', 'This Post could not be found');
+            $this->redirectTo('/');
+        }
+
+        $this->view->render('posts/index', [
+            'post' => $post
+        ]);
     }
 
     public function create(Request $request) {
@@ -78,5 +96,34 @@ class PostsController extends BaseController {
             d($e);
 
         }
+    }
+
+    public function delete(Request $request) {
+        if (!isset($request->getInput( 'page' )[0])) {
+            Session::flash('error', 'Tage page you were trying to acces dies not exists');
+            $this->redirectTo('/dashboard');
+        }
+
+        $id = $request->getInput('page')[0];
+
+        $post = new Post($this->db);
+
+        if(!$post->find($id)) {
+            Session::flash('error', 'This post has already been deleted');
+            $this->redirectTo('/dashboard');
+        }
+
+        if (!$this->user->isLoggedIn() || $this->user->getId() !== $post->getUserId()) {
+            Session::flash('error', 'You do not have permission to delete this post.');
+            $this->redirectTo('/dashboard');
+        }
+
+        if (!$post->delete()) {
+            Session::flash('error', 'Something went wrong.');
+            $this->redirectTo('/dashboard');
+        }
+
+        Session::flash('success', 'The post was successfully deleted');
+        $this->redirectTo('/dashboard');
     }
 }

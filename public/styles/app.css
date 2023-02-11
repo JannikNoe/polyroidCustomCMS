@@ -1,0 +1,7 @@
+.messages .error {
+    color: red !important;
+}
+
+.messages {
+    color: green;
+}
