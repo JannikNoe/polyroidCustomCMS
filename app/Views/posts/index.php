@@ -9,4 +9,8 @@
 <?php endforeach;?>
 <p><?=$post->getBody()?></p>
 
+<?php if($user->isLoggedIn() && ($user->getId() === $post->getUserId())): ?>
+    <button style=" flex: 0.1; background-color: red; color: white; border: none; padding: 6px 8px; border-radius: 4px; "><a style="text-decoration: none; color: white;" href="/posts/delete/<?= $post->getId()?>">Delete this Post</a></button>
+<?php endif; ?>
+
 

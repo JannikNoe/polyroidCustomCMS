@@ -14,6 +14,10 @@
 <div>
     <h3>Deine Posts</h3>
 
+    <?php if (!count($posts)):?>
+        <p>You don't currently have any posts.</p>
+    <?php endif;?>
+
     <?php foreach ($posts as $post): ?>
         <div style="display: flex; column-gap: 12px; margin: 6px 0; justify-content: flex-start">
             <a style="flex: 0.3;" href="/posts/<?= $post->getId();?>/<?=$post->getSlug()?>">
