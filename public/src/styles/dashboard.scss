@@ -1,0 +1,29 @@
+.dashboardWrapper{
+  margin: 0 20px;
+  h2{
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 20px;
+  }
+}
+.dashboardOverview {
+  flex-wrap: wrap;
+  margin-top: 20px;
+  column-gap: 100%;
+  row-gap: 12px;
+}
+
+.overviewDetails{
+  background-color: var(--menuColor);
+  column-gap: 10px;
+  border-radius: 12px;
+  padding: 12px 24px;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  .roundNumber{
+    background-color: white;
+    border-radius: 120px;
+    padding: 10px 12px;
+  }
+}

@@ -1,0 +1,72 @@
+:root {
+  --menuColor: #F5F5F5;
+  --mainFontColor: #222121;
+  --mainFont: 'Montserrat' ; }
+
+.flex {
+  display: flex; }
+
+.t-left {
+  text-align: left; }
+
+.t-center {
+  text-align: center; }
+
+.t-right {
+  text-align: right; }
+
+.button {
+  background-color: #0072FE;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  font-family: var(--main-font);
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 0.7em;
+  font-weight: 600;
+  border: none; }
+
+.button-second {
+  background-color: #D01837;
+  border-radius: 7px;
+  display: inline-block;
+  cursor: pointer;
+  color: white;
+  text-transform: uppercase;
+  font-family: var(--main-font);
+  padding: 12px 20px;
+  text-decoration: none;
+  font-size: 0.7em;
+  font-weight: 600;
+  border: none; }
+
+.button-logout {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: unset;
+  color: black;
+  display: flex;
+  column-gap: 6px;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0; }
+  .button-logout img {
+    width: 100%;
+    max-width: 25px; }
+  .button-logout h6 {
+    font-weight: 600;
+    font-size: 1.1em; }
+
+.button:active, .button-primary:active {
+  position: relative;
+  top: 1px; }
+
+.button a, .button-primary a {
+  color: white; }
+
+/*# sourceMappingURL=main.css.map */
