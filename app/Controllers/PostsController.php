@@ -92,7 +92,7 @@ class PostsController extends BaseController {
             Session::flash('success', 'Your post has been created');
             $this->redirectTo('/dashboard');
         } catch (Exception $e) {
-            echo 'Nix ists';
+            echo 'Fehler. Catch fehlgeschlagen';
             d($e);
 
         }

@@ -64,7 +64,7 @@ class Post {
         if($image === null) return;
 
         $fileStorage = new FileStorage($image);
-        $fileStorage->saveIn('images');
+        $fileStorage->saveIn('src/images');
         $imageName = $fileStorage->getGeneratedName();
 
         $sql = "SELECT MAX(`id`) AS 'id' FROM `posts` WHERE `user_id` = :user_id";
@@ -137,7 +137,7 @@ class Post {
         $imagesQuery = $this->db->query($sql, [ 'postId' => $this->getId() ]);
 
         $images = array_map(function ($image) {
-            return DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $image[ 'path'];
+            return DIRECTORY_SEPARATOR . 'src' .  DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $image[ 'path'];
         }, $imagesQuery->results());
 
         return $images;

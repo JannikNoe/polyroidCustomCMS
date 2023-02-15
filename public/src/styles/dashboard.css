@@ -4,6 +4,24 @@
     font-size: 1.3em;
     font-weight: 600;
     margin-top: 20px; }
+  @media (min-width: 992px) {
+    .dashboardWrapper {
+      margin: 0 80px; } }
+  @media (min-width: 1450px) {
+    .dashboardWrapper {
+      margin: 0; } }
+
+.headline-wrapper {
+  justify-content: space-between;
+  align-items: baseline;
+  margin-top: 36px; }
+  .headline-wrapper h2 {
+    margin: 0; }
+  .headline-wrapper .button {
+    background-color: #F5F5F5; }
+    .headline-wrapper .button a {
+      text-decoration: none;
+      color: var(--mainFontColor); }
 
 .dashboardOverview {
   flex-wrap: wrap;
@@ -23,5 +41,63 @@
     background-color: white;
     border-radius: 120px;
     padding: 10px 12px; }
+
+.lastArticleBox {
+  margin: 16px 0; }
+  @media (min-width: 992px) {
+    .lastArticleBox {
+      display: flex;
+      column-gap: 18px; } }
+
+.lastArticleBoxContent-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 100%;
+  background-color: var(--menuColor);
+  padding: 12px 24px;
+  margin: 12px 0;
+  border-radius: 12px; }
+  .lastArticleBoxContent-wrapper img {
+    width: 100%;
+    max-width: 400px; }
+    @media (min-width: 992px) {
+      .lastArticleBoxContent-wrapper img {
+        max-width: 700px; } }
+  .lastArticleBoxContent-wrapper a {
+    margin-top: 20px;
+    color: var(--mainFontColor);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.2em; }
+  @media (min-width: 992px) {
+    .lastArticleBoxContent-wrapper {
+      flex: 1;
+      max-width: 46%; } }
+
+.lastArticleBoxContentButtons {
+  margin-top: 20px;
+  display: flex;
+  column-gap: 6px;
+  width: 100%; }
+  .lastArticleBoxContentButtons button {
+    width: 100%; }
+    @media (min-width: 992px) {
+      .lastArticleBoxContentButtons button {
+        width: unset; } }
+
+@media (min-width: 992px) {
+  .dashboardWrapper h2 {
+    font-weight: 700;
+    font-size: 1.5em;
+    margin-top: 80px; }
+
+  .headline-wrapper {
+    margin-top: 100px; }
+    .headline-wrapper h2 {
+      margin: 0; }
+
+  .dashboardOverview {
+    flex-wrap: wrap;
+    column-gap: 16px; } }
 
 /*# sourceMappingURL=dashboard.css.map */

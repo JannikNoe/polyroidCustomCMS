@@ -12,13 +12,14 @@
         <link rel="stylesheet" href="/src/styles/header.css">
         <link rel="stylesheet" href="/src/styles/fonts.css">
         <link rel="stylesheet" href="/src/styles/dashboard.css">
-        <title>Polyroid</title>
+        <link rel="stylesheet" href="/src/styles/postcreate.css">
+        <title>Blogmanager</title>
         <style>
 
         </style>
     </head>
     <body>
-        <div class="content-1400" ">
+        <div class=" ">
 <!--            <header>-->
 <!--                <div class="header-wrapper">-->
 <!--                    <h3>Janniks CMS System</h3>-->
@@ -48,7 +49,7 @@
                         <nav class="flex navMenu">
                             <div class="flex navPoint navPointActive">
                                 <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
-                                <h6>Dashboard</h6>
+                                <a href="/dashboard"><h6>Dashboard</h6></a>
                             </div>
                             <div class="flex navPoint">
                                 <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
@@ -66,16 +67,15 @@
                         <button class="button button-logout"><img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg"><h6>Logout</h6></button>
                     </div>
                 </div>
-                <div class="col-sp-12 col-sd-0 row-sp-12 menumobile">
+<!--                <div class="col-sp-12 col-sp-10 row-sp-12">-->
+<!--                    <div class="messages">-->
+<!--                        --><?php //echo $session::flash('success'); ?>
+<!--                    </div>-->
+<!---->
+<!--                    <div class="messages error">-->
+<!--                        --><?php //echo $session::flash('error'); ?>
+<!--                    </div>-->
+<!--                </div>-->
 
-                </div>
 
 
-
-                <div class="messages">
-                    <?php echo $session::flash('success'); ?>
-                </div>
-
-                <div class="messages error">
-                    <?php echo $session::flash('error'); ?>
-                </div>

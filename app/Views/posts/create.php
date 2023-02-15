@@ -1,35 +1,50 @@
-<h1> Write a Post</h1>
+<div class="col-sp-12 col-sd-10 row-sp-12">
+    <div class="content-1200">
+        <div class="dashboardWrapper">
+            <div class="headline-wrapper flex">
+                <h2>Post erstellen</h2>
+                <button class="button"><a href="/dashboard">zurück</a></button>
+            </div>
 
-<form method="post" action="/posts/create" enctype="multipart/form-data">
+            <div class="col-sp-12 col-sd-12 row-sp-12">
+                <div class="mobile-note"><p>Die Redaktion empfiehlt die Erstellung von Posts an Desktop Devices vorzunehmen.</p></div>
 
-    <?php if (isset($errors['root'])): ?>
-        <div class="error"><?=$errors['root']?></div>
-    <?php endif; ?>
+                <form method="post" action="/posts/create" enctype="multipart/form-data">
 
-    <div>
-        <label for="title">Title</label>
-        <input type="text" id="title" name="title" />
-        <?php if (isset($errors['title'])): ?>
-            <div class="error"><?=$errors['title'][0]?></div>
-        <?php endif; ?>
-    </div>
+                    <?php if (isset($errors['root'])): ?>
+                        <div class="error"><?=$errors['root']?></div>
+                    <?php endif; ?>
 
-    <div>
-        <label for="body">Body</label>
-        <textarea name="body" id="body"></textarea>
-        <?php if (isset($errors['body'])): ?>
-            <div class="error"><?=$errors['body'][0]?></div>
-        <?php endif; ?>
-    </div>
+                    <div class="contentInput-wrapper">
+                        <label for="title">Headline</label>
+                        <span class="post-requirements">Anforderungen: min 10 / max 64 Zeichen</span>
+                        <textarea id="title" name="title" ></textarea>
+                        <?php if (isset($errors['title'])): ?>
+                            <div class="error"><?=$errors['title'][0]?></div>
+                        <?php endif; ?>
+                    </div>
 
-    <div>
-        <label for="image">Image</label>
-        <input type="file" id="image" name="image"
-        <?php if (isset($errors['image'])): ?>
-            <div class="error"><?=$errors['image'][0]?></div>
-        <?php endif; ?>
-    </div>
+                    <div class="contentInput-wrapper">
+                        <label for="body">Body</label>
+                        <span class="post-requirements">Anforderungen: min 100 Zeichen</span>
+                        <textarea name="body" id="body" rows="20"></textarea>
+                        <?php if (isset($errors['body'])): ?>
+                            <div class="error"><?=$errors['body'][0]?></div>
+                        <?php endif; ?>
+                    </div>
 
-    <input type="submit" value="Create Post">
+                    <div class="contentInput-wrapper">
+                        <label for="image">Image</label>
+                        <span class="post-requirements">Anforderungen: max 2mb | 600x900px</span>
+                        <input type="file" id="image" name="image">
+                        <?php if (isset($errors['image'])): ?>
+                            <div class="error"><?=$errors['image'][0]?></div>
+                        <?php endif; ?>
+                    </div>
+                    <div class="submit">
+                        <input class="submitButton" type="submit" value="Create Post">
+                    </div>
 
-</form>
+                </form>
+            </div>
+
