@@ -66,5 +66,8 @@
     .menumobile img {
       width: 100%;
       max-width: 40px; } }
+@media (min-width: 992px) {
+  .button-logout h6 {
+    color: var(--mainFontColor); } }
 
 /*# sourceMappingURL=header.css.map */

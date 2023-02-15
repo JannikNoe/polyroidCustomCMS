@@ -1,0 +1,68 @@
+.postView-wrapper{
+  margin: 0 20px;
+  h2{
+    font-size: 1.3em;
+    font-weight: 600;
+    margin-top: 20px;
+    @media (min-width: 992px) {
+      font-weight: 700;
+      font-size: 1.5em;
+    }
+  }
+  @media(min-width: 992px) {
+    margin: 0 80px;
+  }
+
+  @media(min-width: 1450px) {
+    margin: 0;
+  }
+
+  .articleHeadline{
+    background-color: var(--menuColor);
+    padding: 22px 0 0;
+    margin: 12px 0 30px;
+    border-radius: 2px;
+
+    h3, h6, .postedAt {
+      padding-left: 12px !important;
+      padding-right: 12px !important;
+      @media (min-width: 992px){
+        padding-left: 20px !important;
+        padding-right: 20px !important;
+      }
+    }
+
+    h3{
+      font-size: 1.2em;
+      font-weight: 600;
+      padding: 6px 0;
+      @media (min-width: 992px){
+        font-size: 1.5em;
+        font-weight: 700;
+      }
+    }
+
+    h6{
+      font-size: 0.9em;
+      font-weight: 600;
+      color: #0072FE;
+      @media (min-width: 992px){
+        font-size: 1.1em;
+      }
+    }
+
+    .postedAt{
+      font-size: 0.8em;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    img{
+      max-width: 1200px;
+      width: 100%;
+      border-radius: 6px;
+
+    }
+  }
+}
+

@@ -13,7 +13,9 @@
         <link rel="stylesheet" href="/src/styles/fonts.css">
         <link rel="stylesheet" href="/src/styles/dashboard.css">
         <link rel="stylesheet" href="/src/styles/postcreate.css">
-        <title>Blogmanager</title>
+        <link rel="stylesheet" href="/src/styles/loginRegisterLogout.css">
+        <link rel="stylesheet" href="/src/styles/postView.css">
+        <title>Memesdaily</title>
         <style>
 
         </style>
@@ -39,32 +41,44 @@
 <!--                </div>-->
 <!--            </header>-->
             <div class="menumobile flex">
-                <h2>Blogmanager</h2>
+                <h2>MemesDaily</h2>
                 <img src="/src/images/icons/menu_FILL0_wght400_GRAD0_opsz48.svg">
             </div>
             <div class="grid-12">
                 <div class="col-sp-0 col-sd-2 row-sp-12">
                     <div class="sidemenuDesktop">
-                        <h2>Blogmanager</h2>
+                        <h2>MemesDaily</h2>
                         <nav class="flex navMenu">
-                            <div class="flex navPoint navPointActive">
-                                <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
-                                <a href="/dashboard"><h6>Dashboard</h6></a>
-                            </div>
-                            <div class="flex navPoint">
-                                <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
-                                <h6>Posts Übersicht</h6>
-                            </div>
-                            <div class="flex navPoint">
-                                <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
-                                <h6>Nutzer</h6>
-                            </div>
-                            <div class="flex navPoint">
-                                <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
-                                <h6>Settings</h6>
-                            </div>
+
+
+                            <?php if ($user->isLoggedIn()): ?>
+                                <div class="flex navPoint navPointActive">
+                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                    <a href="/dashboard"><h6>Dashboard</h6></a>
+                                </div>
+                                <div class="flex navPoint">
+                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                    <h6>Posts Übersicht</h6>
+                                </div>
+                                <div class="flex navPoint">
+                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                    <h6>Nutzer</h6>
+                                </div>
+                                <div class="flex navPoint">
+                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                    <h6>Settings</h6>
+                                </div>
+                                <button class="button-logout"><img src="/src/images/icons/power_settings_new_FILL0_wght600_GRAD0_opsz48.svg"><a href="/logout"><h6>Ausloggen</h6></a></li></button>
+                            <?php else: ?>
+                                <div class="flex navPoint" >
+                                    <a href="/register">Registrieren</a>
+                                </div>
+                                <div class="flex navPoint" >
+                                    <a href="/login">Anmelden</a>
+                                </div>
+                            <?php endif; ?>
                         </nav>
-                        <button class="button button-logout"><img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg"><h6>Logout</h6></button>
+
                     </div>
                 </div>
 <!--                <div class="col-sp-12 col-sp-10 row-sp-12">-->

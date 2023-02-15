@@ -58,6 +58,7 @@
   @media(min-width: 992px) {
     display: flex;
     column-gap: 18px;
+    flex-wrap: wrap;
   }
 }
 .lastArticleBoxContent-wrapper{
