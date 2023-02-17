@@ -17,6 +17,7 @@ class Post {
     private string $slug;
     private string $created_at;
     private string $user_id;
+    private array $images;
 
     public function __construct(Database $db, ?array $data = []) {
         $this->db = $db;
@@ -39,6 +40,20 @@ class Post {
 
         $this->fill($postQuery->results()[0]);
         return true;
+
+    }
+
+    public function findLatest(): array {
+        $sql = "SELECT * FROM  `posts` ORDER BY `created_at` DESC LIMIT 5";
+        $postQuery = $this->db->query($sql);
+
+        $posts = [];
+
+        foreach ($postQuery->results() as $result) {
+            $posts[] = new Post($this->db, $result);
+        }
+
+        return $posts;
 
     }
 
@@ -133,14 +148,19 @@ class Post {
     }
 
     public function getImages(): array {
+
+        if (isset($this->images)) {
+            return $this->images;
+        }
+
         $sql = "SELECT `path` FROM `posts_images` WHERE `post_id` = :postId";
         $imagesQuery = $this->db->query($sql, [ 'postId' => $this->getId() ]);
 
-        $images = array_map(function ($image) {
+        $this->images = array_map(function ($image) {
             return DIRECTORY_SEPARATOR . 'src' .  DIRECTORY_SEPARATOR . 'images' . DIRECTORY_SEPARATOR . $image[ 'path'];
         }, $imagesQuery->results());
 
-        return $images;
+        return $this->images;
     }
 
 

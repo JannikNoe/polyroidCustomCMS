@@ -126,4 +126,50 @@ class PostsController extends BaseController {
         Session::flash('success', 'The post was successfully deleted');
         $this->redirectTo('/dashboard');
     }
+
+    public function edit(Request $request) {
+        if (!isset($request->getInput('page')[0])) {
+            Session::flash('error', 'You must access this page via link');
+            $this->redirectTo('/dashboard');
+        }
+
+        $id = $request->getInput('page')[0];
+        $post = new Post($this->db);
+
+        if(!$post->find($id)) {
+            Session::flash('error', 'This post does not exist');
+            $this->redirectTo('/dashboard', 404);
+        }
+
+        if (!$this->user->isLoggedIn() || $this->user->getId() !== $post->getUserId()) {
+            Session::flash('error', 'You do not have permission to edit this post.');
+            $this->redirectTo('/dashboard');
+        }
+
+        if ($request->getMethod() !== 'POST'){
+
+            $this->view->render('/posts/edit', [
+                'post' => $post
+            ]);
+        }
+
+
+        $formInput = $request->getInput();
+
+        $validation = new FormValidation($formInput, $this->db);
+
+
+        $validation->setRules([
+            'title' => 'required|min:10|max:64',
+            'body' => 'required|min:100'
+        ]);
+
+        $validation->validate();
+
+        if($validation->fails()) {
+            $this->view->render('post/edit', [
+                'errors' => $validation->getErrors()
+            ], 422);
+        }
+    }
 }

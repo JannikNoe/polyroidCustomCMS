@@ -40,8 +40,8 @@
                                     <?php echo $post->getTitle(); ?>
                                 </a>
                                 <div class="lastArticleBoxContentButtons">
+                                    <button class="button"><a style="text-decoration: none; color: white;" href="/posts/edit/<?= $post->getId()?>/<?=$post->getSlug()?>">Edit Post</a></button>
                                     <button class="button-second"><a style="text-decoration: none; color: white;" href="/posts/delete/<?= $post->getId()?>">Delete Post</a></button>
-                                    <button class="button"><a style="text-decoration: none; color: white;" href="/posts/delete/<?= $post->getId()?>">Delete Post</a></button>
                                 </div>
 
                             </div>

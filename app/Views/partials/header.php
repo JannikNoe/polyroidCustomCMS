@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="/src/styles/postcreate.css">
         <link rel="stylesheet" href="/src/styles/loginRegisterLogout.css">
         <link rel="stylesheet" href="/src/styles/postView.css">
+        <link rel="stylesheet" href="/src/styles/home.css">
         <title>Memesdaily</title>
         <style>
 
@@ -54,6 +55,10 @@
                             <?php if ($user->isLoggedIn()): ?>
                                 <div class="flex navPoint navPointActive">
                                     <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                    <a href="/"><h6>Startseite</h6></a>
+                                </div>
+                                <div class="flex navPoint ">
+                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
                                     <a href="/dashboard"><h6>Dashboard</h6></a>
                                 </div>
                                 <div class="flex navPoint">
@@ -70,6 +75,9 @@
                                 </div>
                                 <button class="button-logout"><img src="/src/images/icons/power_settings_new_FILL0_wght600_GRAD0_opsz48.svg"><a href="/logout"><h6>Ausloggen</h6></a></li></button>
                             <?php else: ?>
+                                <div class="flex navPoint">
+                                    <a href="/"><h6>Start</h6></a>
+                                </div>
                                 <div class="flex navPoint" >
                                     <a href="/register">Registrieren</a>
                                 </div>
