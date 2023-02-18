@@ -133,15 +133,16 @@
 
                     </div>
                 </div>
-<!--                <div class="col-sp-12 col-sp-10 row-sp-12">-->
-<!--                    <div class="messages">-->
-<!--                        --><?php //echo $session::flash('success'); ?>
-<!--                    </div>-->
-<!---->
-<!--                    <div class="messages error">-->
-<!--                        --><?php //echo $session::flash('error'); ?>
-<!--                    </div>-->
-<!--                </div>-->
+                <div class="col-sp-12 col-sd-10 row-sp-12">
+                    <div class="messages">
+                        <?php echo $session::flash('success'); ?>
+                    </div>
+
+
+                    <div class="messages error">
+                        <?php echo $session::flash('error'); ?>
+                    </div>
+
 
 
 

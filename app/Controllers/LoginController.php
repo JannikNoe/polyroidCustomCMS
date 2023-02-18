@@ -48,7 +48,7 @@ class LoginController extends BaseController {
         // User Login
          try {
              $this->user->login($formInput['email'], $formInput['password']);
-             Session::flash('success', 'Yuu have been successfully signed in.');
+             Session::flash('success', '<div class="flashbox flashboxSuccess">Du hast dich erfolgreich eingeloggt.</div>');
              $this->redirectTo('/dashboard');
          } catch (Exception $e){
              $this->view->render('login/index', [

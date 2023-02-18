@@ -72,11 +72,15 @@
         background-color: white;
         color: var(--mainFontColor);
       }
+      hr{
+        display: none;
+      }
     }
   }
 
   .settings-general-wrapper{
     position: relative;
+    margin-bottom: 220px;
     top: 230px;
     .headline {
       justify-content: center;
@@ -104,6 +108,106 @@
       }
       li{
         padding: 8px 0;
+      }
+    }
+  }
+
+  .buttons-wrapper{
+    margin: 24px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 100%;
+    row-gap: 10px;
+    a{
+      text-decoration: none;
+      color: black;
+      width: 100%;
+      text-align: center;
+    }
+    .button{
+      @media (min-width: 992px) {
+        width: 180px !important;
+      }
+    }
+  }
+}
+@media (min-width: 992px) {
+  .settingsWrapper {
+    margin: 0 50px 0 80px;
+    .profile-wrapper .profileInformations {
+      width: 80%;
+    }
+  }
+}
+
+@media (min-width: 1300px) {
+  .settingsWrapper{
+    .headline-wrapper {
+      justify-content: left;
+      h2{
+        font-weight: 700;
+        font-size: 1.5em;
+      }
+    }
+    .settings-headline-wrapper{
+      justify-content: space-between;
+      column-gap: unset;
+    }
+    .profile-wrapper{
+      justify-content: left;
+      .profileInformations{
+        display: flex;
+        width: 94%;
+        column-gap: 30px;
+        top: 36px !important;
+        left: 20px;
+        align-items: normal;
+        padding: 30px 0;
+        text-align: left;
+        hr{
+          margin: 0 12px;
+          opacity: 0.3;
+          display: block !important;
+        }
+        .distance{
+          padding: 0 100px !important;
+        }
+        h6{
+          padding-bottom: 14px !important;
+        }
+      }
+    }
+    .settings-general-wrapper{
+      top: 80px;
+      .headline{
+        justify-content: start;
+      }
+      .generalList{
+        ul{
+          li{
+            text-align: left;
+          }
+        }
+
+      }
+    }
+    .buttons-wrapper{
+      justify-content: right;
+      text-align: right;
+      column-gap: 18px;
+      flex-wrap: nowrap;
+      align-items: baseline;
+      flex-direction: row-reverse;
+      a{
+        width: unset;
+        .button {
+          width: 130px !important;
+          margin: 12px 0 30px;
+        }
+      }
+      .delete{
+        opacity: 0.7;
+        font-size: 0.9em;
       }
     }
   }

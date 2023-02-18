@@ -2,7 +2,31 @@
     color: red !important;
 }
 
-.messages {
+.messages{
     color: green;
+    text-align: center;
+    margin-top: 40p
+}
+
+.flashbox{
+    font-size: 0.9em;
+    text-align: center;
+    position: relative;
+    border-radius: 12px;
+    width: 400px;
+    padding: 20px;
+    left: 50%;
+    top: 40px;
+    transform: translateX(-50%);
+}
+
+.flashboxSuccess{
+    background-color: green;
+    color: white;
+}
+
+.flashboxError{
+    background-color: red;
+    color: white;
 }
 

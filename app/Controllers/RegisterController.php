@@ -58,7 +58,7 @@ class RegisterController extends BaseController {
                  $formInput['email'],
                  $formInput['password']
              );
-             Session::flash('success', 'Your Account is created. Bitte einloggen habibi');
+             Session::flash('success', '<div class="flashbox flashboxSuccess">Your Account is created. Bitte einloggen habibi</div>');
              $this->redirectTo('/login');
          } catch (Exception $e){
              $this->view->render('login/index', [

@@ -23,10 +23,12 @@
                             <h6>Username</h6>
                             <p>Lorem Ipsum door</p>
                         </div>
+                        <hr/>
                         <div class="E-Mail-Adresse">
                             <h6>E-Mail-Adresse</h6>
                             <p>LoremIpsum@lorem.com</p>
                         </div>
+                        <hr/>
                         <div class="E-Mail-Adresse">
                             <h6>Profilbild</h6>
                             <a href="#"><button class="button">Bild hochladen</button></a>
@@ -47,6 +49,10 @@
                             <a href="#"><li>Hilfecenter</li></a>
                             <a href="#"><li>Support Kontaktieren</li></a>
                         </ul>
+                    </div>
+                    <div class="buttons-wrapper flex">
+                        <a href="#"><button class="button">Speichern</button></a>
+                        <a class="delete" href="#">Account löschen</a>
                     </div>
                 </div>
             </div>

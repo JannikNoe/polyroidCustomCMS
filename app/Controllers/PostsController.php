@@ -16,7 +16,7 @@ class PostsController extends BaseController {
     public function index(Request $request) {
 
         if (!isset($request->getInput('page')[0])) {
-            Session::flash('error', 'The page you were trying to acces does not exists');
+            Session::flash('error', '<div class="flashbox flashboxError">The page you were trying to acces does not exists</div>');
             $this->redirectTo('/');
 
         }
@@ -26,7 +26,7 @@ class PostsController extends BaseController {
         $post = new Post($this->db);
 
         if (!$post->find($id)) {
-            Session::flash('error', 'This Post could not be found');
+            Session::flash('error', '<div class="flashbox flashboxError">This Post could not be found</div>');
             $this->redirectTo('/');
         }
 
@@ -62,7 +62,7 @@ class PostsController extends BaseController {
 
         $fileValidation->setRules([
 
-            'image' => 'type:image|maxsize:2097152'
+            'image' => 'required|type:image|maxsize:2097152'
 
         ]);
 
@@ -88,11 +88,12 @@ class PostsController extends BaseController {
                 $formInput['body'],
                 $image
             );
-
-            Session::flash('success', 'Your post has been created');
+            $successMessage = '<div class="flashbox flashboxSuccess">Der Beitrag wurde erfolreich erstellt</div>';
+            $errorMessage = '<div class="flashbox flashboxError">Es ist etwas schiefgelaufen</div>';
+            Session::flash('success', $successMessage);
             $this->redirectTo('/dashboard');
         } catch (Exception $e) {
-            echo 'Fehler. Catch fehlgeschlagen';
+            echo $errorMessage;
             d($e);
 
         }
@@ -100,7 +101,7 @@ class PostsController extends BaseController {
 
     public function delete(Request $request) {
         if (!isset($request->getInput( 'page' )[0])) {
-            Session::flash('error', 'Tage page you were trying to acces dies not exists');
+            Session::flash('error', '<div class="flashbox flashboxError">Tage page you were trying to acces dies not exists</div>');
             $this->redirectTo('/dashboard');
         }
 
@@ -109,27 +110,27 @@ class PostsController extends BaseController {
         $post = new Post($this->db);
 
         if(!$post->find($id)) {
-            Session::flash('error', 'This post has already been deleted');
+            Session::flash('error', '<div class="flashbox flashboxError">This post has already been deleted</div>');
             $this->redirectTo('/dashboard');
         }
 
         if (!$this->user->isLoggedIn() || $this->user->getId() !== $post->getUserId()) {
-            Session::flash('error', 'You do not have permission to delete this post.');
+            Session::flash('error', '<div class="flashbox flashboxError">You do not have permission to delete this post.</div>');
             $this->redirectTo('/dashboard');
         }
 
         if (!$post->delete()) {
-            Session::flash('error', 'Something went wrong.');
+            Session::flash('error', '<div class="flashbox flashboxError">Something went wrong.</div>');
             $this->redirectTo('/dashboard');
         }
 
-        Session::flash('success', 'The post was successfully deleted');
+        Session::flash('success', '<div class="flashbox flashboxSuccess">The post was successfully deleted</div>');
         $this->redirectTo('/dashboard');
     }
 
     public function edit(Request $request) {
         if (!isset($request->getInput('page')[0])) {
-            Session::flash('error', 'You must access this page via link');
+            Session::flash('error', '<div class="flashbox flashboxError">You must access this page via link</div>');
             $this->redirectTo('/dashboard');
         }
 
@@ -137,12 +138,12 @@ class PostsController extends BaseController {
         $post = new Post($this->db);
 
         if(!$post->find($id)) {
-            Session::flash('error', 'This post does not exist');
+            Session::flash('error', '<div class="flashbox flashboxError">This post does not exist</div>');
             $this->redirectTo('/dashboard', 404);
         }
 
         if (!$this->user->isLoggedIn() || $this->user->getId() !== $post->getUserId()) {
-            Session::flash('error', 'You do not have permission to edit this post.');
+            Session::flash('error', '<div class="flashbox flashboxError">You do not have permission to edit this post.</div>');
             $this->redirectTo('/dashboard');
         }
 

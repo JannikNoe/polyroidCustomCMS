@@ -18,9 +18,9 @@
                     <?php endforeach;?>
                 </div>
                 <p><?=$post->getBody()?></p>
-
-
-
             </div>
+        </div>
+    </div>
+</div>
 
 

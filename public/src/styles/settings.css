@@ -58,8 +58,11 @@
         width: unset !important;
         background-color: white;
         color: var(--mainFontColor); }
+      .settingsWrapper .profile-wrapper .profileInformations hr {
+        display: none; }
   .settingsWrapper .settings-general-wrapper {
     position: relative;
+    margin-bottom: 220px;
     top: 230px; }
     .settingsWrapper .settings-general-wrapper .headline {
       justify-content: center;
@@ -79,5 +82,74 @@
       text-align: center; }
     .settingsWrapper .generalList ul li {
       padding: 8px 0; }
+  .settingsWrapper .buttons-wrapper {
+    margin: 24px 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 100%;
+    row-gap: 10px; }
+    .settingsWrapper .buttons-wrapper a {
+      text-decoration: none;
+      color: black;
+      width: 100%;
+      text-align: center; }
+    @media (min-width: 992px) {
+      .settingsWrapper .buttons-wrapper .button {
+        width: 180px !important; } }
+
+@media (min-width: 992px) {
+  .settingsWrapper {
+    margin: 0 50px 0 80px; }
+    .settingsWrapper .profile-wrapper .profileInformations {
+      width: 80%; } }
+@media (min-width: 1300px) {
+  .settingsWrapper .headline-wrapper {
+    justify-content: left; }
+    .settingsWrapper .headline-wrapper h2 {
+      font-weight: 700;
+      font-size: 1.5em; }
+  .settingsWrapper .settings-headline-wrapper {
+    justify-content: space-between;
+    column-gap: unset; }
+  .settingsWrapper .profile-wrapper {
+    justify-content: left; }
+    .settingsWrapper .profile-wrapper .profileInformations {
+      display: flex;
+      width: 94%;
+      column-gap: 30px;
+      top: 36px !important;
+      left: 20px;
+      align-items: normal;
+      padding: 30px 0;
+      text-align: left; }
+      .settingsWrapper .profile-wrapper .profileInformations hr {
+        margin: 0 12px;
+        opacity: 0.3;
+        display: block !important; }
+      .settingsWrapper .profile-wrapper .profileInformations .distance {
+        padding: 0 100px !important; }
+      .settingsWrapper .profile-wrapper .profileInformations h6 {
+        padding-bottom: 14px !important; }
+  .settingsWrapper .settings-general-wrapper {
+    top: 80px; }
+    .settingsWrapper .settings-general-wrapper .headline {
+      justify-content: start; }
+    .settingsWrapper .settings-general-wrapper .generalList ul li {
+      text-align: left; }
+  .settingsWrapper .buttons-wrapper {
+    justify-content: right;
+    text-align: right;
+    column-gap: 18px;
+    flex-wrap: nowrap;
+    align-items: baseline;
+    flex-direction: row-reverse; }
+    .settingsWrapper .buttons-wrapper a {
+      width: unset; }
+      .settingsWrapper .buttons-wrapper a .button {
+        width: 130px !important;
+        margin: 12px 0 30px; }
+    .settingsWrapper .buttons-wrapper .delete {
+      opacity: 0.7;
+      font-size: 0.9em; } }
 
 /*# sourceMappingURL=settings.css.map */
