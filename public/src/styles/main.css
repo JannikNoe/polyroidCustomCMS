@@ -26,6 +26,9 @@
 .overflow {
   overflow: scroll; }
 
+.pointer {
+  cursor: pointer; }
+
 .button {
   background-color: #0072FE;
   border-radius: 7px;
@@ -34,14 +37,18 @@
   color: white;
   text-transform: uppercase;
   font-family: var(--main-font);
-  padding: 12px 20px;
+  padding: 12px 16px;
   text-decoration: none;
   font-size: 0.7em;
   font-weight: 600;
-  border: none; }
+  border: none;
+  width: 100%; }
   @media (max-width: 600px) {
     .button {
       font-size: 0.6em; } }
+  @media (min-width: 992px) {
+    .button {
+      width: unset; } }
 
 .button-second {
   background-color: #D01837;
@@ -51,7 +58,7 @@
   color: white;
   text-transform: uppercase;
   font-family: var(--main-font);
-  padding: 12px 20px;
+  padding: 12px 16px;
   text-decoration: none;
   font-size: 0.7em;
   font-weight: 600;
@@ -59,6 +66,19 @@
   @media (max-width: 600px) {
     .button-second {
       font-size: 0.6em; } }
+
+.button-delete {
+  background-color: #D01837;
+  border: none;
+  border-radius: 7px;
+  width: 100%;
+  padding: 6px 16px; }
+  @media (min-width: 992px) {
+    .button-delete {
+      width: unset; } }
+  .button-delete a img {
+    width: 100%;
+    max-width: 20px; }
 
 .button-logout {
   border-radius: 7px;

@@ -1,0 +1,83 @@
+.settingsWrapper {
+  margin: 0 20px; }
+  .settingsWrapper .headline-wrapper {
+    justify-content: center;
+    margin-bottom: 20px; }
+    .settingsWrapper .headline-wrapper h2 {
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.3em; }
+  .settingsWrapper .settings-headline-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 100%; }
+    .settingsWrapper .settings-headline-wrapper .headline {
+      justify-content: center;
+      align-items: center;
+      column-gap: 6px; }
+      .settingsWrapper .settings-headline-wrapper .headline img {
+        width: 100%;
+        max-width: 40px; }
+      .settingsWrapper .settings-headline-wrapper .headline h3 {
+        font-size: 1.1em;
+        font-weight: 600; }
+    .settingsWrapper .settings-headline-wrapper .button {
+      width: 130px;
+      background-color: var(--menuColor);
+      color: var(--mainFontColor);
+      margin: 12px 0 30px; }
+  .settingsWrapper .profile-wrapper {
+    justify-content: center;
+    column-gap: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    position: relative; }
+    .settingsWrapper .profile-wrapper .profile img {
+      width: 100%;
+      max-width: 176px;
+      border-radius: 120px;
+      border: solid 8px var(--menuColor); }
+    .settingsWrapper .profile-wrapper .profileInformations {
+      background-color: var(--menuColor);
+      border-radius: 12px;
+      width: 100%;
+      position: absolute;
+      top: 150px;
+      z-index: -1;
+      padding-bottom: 30px; }
+      .settingsWrapper .profile-wrapper .profileInformations .distance {
+        padding: 28px 0; }
+      .settingsWrapper .profile-wrapper .profileInformations h6 {
+        font-size: 1em;
+        font-weight: 600;
+        padding-bottom: 6px; }
+      .settingsWrapper .profile-wrapper .profileInformations p {
+        padding-bottom: 14px; }
+      .settingsWrapper .profile-wrapper .profileInformations .button {
+        width: unset !important;
+        background-color: white;
+        color: var(--mainFontColor); }
+  .settingsWrapper .settings-general-wrapper {
+    position: relative;
+    top: 230px; }
+    .settingsWrapper .settings-general-wrapper .headline {
+      justify-content: center;
+      align-items: center;
+      column-gap: 6px; }
+      .settingsWrapper .settings-general-wrapper .headline img {
+        width: 100%;
+        max-width: 40px; }
+      .settingsWrapper .settings-general-wrapper .headline h3 {
+        font-size: 1.1em;
+        font-weight: 600; }
+  .settingsWrapper .generalList ul {
+    margin-top: 8px; }
+    .settingsWrapper .generalList ul a {
+      color: var(--mainFontColor);
+      text-decoration: none;
+      text-align: center; }
+    .settingsWrapper .generalList ul li {
+      padding: 8px 0; }
+
+/*# sourceMappingURL=settings.css.map */

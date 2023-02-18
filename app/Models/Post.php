@@ -44,7 +44,7 @@ class Post {
     }
 
     public function findLatest(): array {
-        $sql = "SELECT * FROM  `posts` ORDER BY `created_at` DESC LIMIT 5";
+        $sql = "SELECT * FROM  `posts` ORDER BY `created_at` DESC LIMIT 6";
         $postQuery = $this->db->query($sql);
 
         $posts = [];

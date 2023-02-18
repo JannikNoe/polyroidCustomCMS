@@ -16,10 +16,12 @@
         <link rel="stylesheet" href="/src/styles/loginRegisterLogout.css">
         <link rel="stylesheet" href="/src/styles/postView.css">
         <link rel="stylesheet" href="/src/styles/home.css">
+        <link rel="stylesheet" href="/src/styles/settings.css">
         <title>Memesdaily</title>
         <style>
 
         </style>
+        <script src="/src/js/menu.js"></script>
     </head>
     <body>
         <div class=" ">
@@ -43,7 +45,49 @@
 <!--            </header>-->
             <div class="menumobile flex">
                 <h2>MemesDaily</h2>
-                <img src="/src/images/icons/menu_FILL0_wght400_GRAD0_opsz48.svg">
+                <img src="/src/images/icons/menu_FILL0_wght400_GRAD0_opsz48.svg" id="menu-button" onclick="menu()">
+            </div>
+            <div class="mobile-nav" style="display: none;" id="mobileNavMenu">
+                <div class="sidemenuMobile">
+                    <nav class="flex navMenu">
+
+
+                        <?php if ($user->isLoggedIn()): ?>
+                            <div class="flex navPoint navPointActive">
+                                <img src="/src/images/icons/newspaper_FILL1_wght400_GRAD0_opsz48.svg" />
+                                <a href="/"><h6>Startseite</h6></a>
+                            </div>
+                            <div class="flex navPoint ">
+                                <img src="/src/images/icons/home_FILL0_wght400_GRAD0_opsz48.svg" />
+                                <a href="/dashboard"><h6>Dashboard</h6></a>
+                            </div>
+                            <div class="flex navPoint">
+                                <img src="/src/images/icons/rss_feed_FILL1_wght400_GRAD0_opsz48.svg" />
+                                <h6>Posts Übersicht</h6>
+                            </div>
+                            <div class="flex navPoint">
+                                <img src="/src/images/icons/person_FILL1_wght400_GRAD0_opsz48.svg" />
+                                <h6>Nutzer</h6>
+                            </div>
+                            <div class="flex navPoint">
+                                <img src="/src/images/icons/settings_FILL1_wght400_GRAD0_opsz48.svg" />
+                                <a href="/settings"><h6>Settings</h6></a>
+                            </div>
+                            <button class="button-logout"><img src="/src/images/icons/power_settings_new_FILL0_wght600_GRAD0_opsz48.svg"><a href="/logout"><h6>Ausloggen</h6></a></li></button>
+                        <?php else: ?>
+                            <div class="flex navPoint">
+                                <a href="/"><h6>Start</h6></a>
+                            </div>
+                            <div class="flex navPoint" >
+                                <a href="/register">Registrieren</a>
+                            </div>
+                            <div class="flex navPoint" >
+                                <a href="/login">Anmelden</a>
+                            </div>
+                        <?php endif; ?>
+                    </nav>
+                </div>
+                <hr style="opacity: 0.1; margin: 0 20px;"/>
             </div>
             <div class="grid-12">
                 <div class="col-sp-0 col-sd-2 row-sp-12">
@@ -53,25 +97,25 @@
 
 
                             <?php if ($user->isLoggedIn()): ?>
-                                <div class="flex navPoint navPointActive">
-                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                <div class="flex navPoint navPointActive pointer">
+                                    <img src="/src/images/icons/newspaper_FILL1_wght400_GRAD0_opsz48.svg" />
                                     <a href="/"><h6>Startseite</h6></a>
                                 </div>
-                                <div class="flex navPoint ">
-                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                <div class="flex navPoint pointer">
+                                    <img src="/src/images/icons/home_FILL0_wght400_GRAD0_opsz48.svg" />
                                     <a href="/dashboard"><h6>Dashboard</h6></a>
                                 </div>
-                                <div class="flex navPoint">
-                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                <div class="flex navPoint pointer">
+                                    <img src="/src/images/icons/rss_feed_FILL1_wght400_GRAD0_opsz48.svg" />
                                     <h6>Posts Übersicht</h6>
                                 </div>
-                                <div class="flex navPoint">
-                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
+                                <div class="flex navPoint pointer">
+                                    <img src="/src/images/icons/person_FILL1_wght400_GRAD0_opsz48.svg" />
                                     <h6>Nutzer</h6>
                                 </div>
-                                <div class="flex navPoint">
-                                    <img src="/src/images/icons/monitoring_FILL0_wght400_GRAD0_opsz48.svg" />
-                                    <h6>Settings</h6>
+                                <div class="flex navPoint pointer">
+                                    <img src="/src/images/icons/settings_FILL1_wght400_GRAD0_opsz48.svg" />
+                                    <a href="/settings"><h6>Settings</h6></a>
                                 </div>
                                 <button class="button-logout"><img src="/src/images/icons/power_settings_new_FILL0_wght600_GRAD0_opsz48.svg"><a href="/logout"><h6>Ausloggen</h6></a></li></button>
                             <?php else: ?>

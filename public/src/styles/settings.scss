@@ -1,0 +1,110 @@
+.settingsWrapper{
+  margin: 0 20px;
+  .headline-wrapper{
+    justify-content: center;
+    margin-bottom: 20px;
+    h2{
+      text-align: center;
+      font-weight: 600;
+      font-size: 1.3em;
+    }
+  }
+  .settings-headline-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 100%;
+    .headline {
+      justify-content: center;
+      align-items: center;
+      column-gap: 6px;
+      img{
+        width: 100%;
+        max-width: 40px;
+      }
+      h3{
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+    }
+    .button{
+      width: 130px;
+      background-color: var(--menuColor);
+      color: var(--mainFontColor);
+      margin: 12px 0 30px;
+    }
+  }
+  .profile-wrapper {
+    justify-content: center;
+    column-gap: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    position: relative;
+    .profile {
+      img{
+        width: 100%;
+        max-width: 176px;
+        border-radius: 120px;
+        border: solid 8px var(--menuColor);
+      }
+    }
+    .profileInformations{
+      background-color: var(--menuColor);
+      border-radius: 12px;
+      width: 100%;
+      position: absolute;
+      top: 150px;
+      z-index: -1;
+      padding-bottom: 30px;
+      .distance{
+        padding: 28px 0;
+      }
+      h6{
+        font-size: 1em;
+        font-weight: 600;
+        padding-bottom: 6px;
+      }
+      p{
+        padding-bottom: 14px;
+      }
+      .button{
+        width: unset !important;
+        background-color: white;
+        color: var(--mainFontColor);
+      }
+    }
+  }
+
+  .settings-general-wrapper{
+    position: relative;
+    top: 230px;
+    .headline {
+      justify-content: center;
+      align-items: center;
+      column-gap: 6px;
+      img{
+        width: 100%;
+        max-width: 40px;
+      }
+      h3{
+        font-size: 1.1em;
+        font-weight: 600;
+      }
+    }
+  }
+
+  .generalList{
+    ul {
+      margin-top: 8px;
+      a{
+        color: var(--mainFontColor);
+        text-decoration: none;
+        text-align: center;
+
+      }
+      li{
+        padding: 8px 0;
+      }
+    }
+  }
+}

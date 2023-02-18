@@ -21,7 +21,7 @@
 .navMenu {
   justify-content: start;
   margin-top: 40px;
-  margin-left: 5px;
+  margin-left: 26px;
   flex-wrap: wrap;
   column-gap: 100%;
   row-gap: 14px; }
@@ -31,6 +31,9 @@
   .navMenu a {
     text-decoration: none;
     color: var(--mainFontColor); }
+
+.menumobile {
+  display: none; }
 
 .navPoint {
   padding: 12px 18px;
@@ -48,9 +51,6 @@
 .navPointActive {
   background-color: #F0F0F0; }
 
-.menumobile {
-  display: none; }
-
 @media (max-width: 991px) {
   .sidemenuDesktop {
     display: none; }
@@ -59,13 +59,14 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10px 6px 0; }
+    margin: 17px 22px 0; }
     .menumobile h2 {
       font-size: 1.2em;
       font-weight: 600; }
     .menumobile img {
       width: 100%;
-      max-width: 40px; } }
+      max-width: 40px;
+      cursor: pointer; } }
 @media (min-width: 992px) {
   .button-logout h6 {
     color: var(--mainFontColor); } }

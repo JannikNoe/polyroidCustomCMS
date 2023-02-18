@@ -10,12 +10,14 @@ use App\Models\User;
 class HomeController extends BaseController {
 
     public function index() {
+
         $post = new Post($this->db);
         $posts = $post->findLatest();
 
         $this->view->render('home/index', [
             'posts' => $posts
         ]);
+
     }
 }
 

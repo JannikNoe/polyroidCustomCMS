@@ -92,14 +92,19 @@
 .lastArticleBoxContentButtons{
   margin-top:20px;
   display: flex;
-  column-gap: 6px;
+  column-gap: 100%;
+  flex-wrap: wrap;
+  row-gap: 8px;
   width: 100%;
-  button{
-    width: 100%;
-    @media(min-width: 992px) {
-      width: unset;
-    }
+  .button{
+    max-width: unset !important;
+    max-height: unset !important;
   }
+  @media (min-width: 992px) {
+    flex-wrap: nowrap;
+    column-gap: 6px;
+  }
+
 }
 @media (min-width: 992px) {
 
@@ -125,5 +130,9 @@
     .overviewDetails{
 
     }
+  }
+
+  .button-second a{
+    font-size: 1em !important;
   }
 }

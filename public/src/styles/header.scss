@@ -25,7 +25,7 @@
 .navMenu{
   justify-content: start;
   margin-top: 40px;
-  margin-left: 5px;
+  margin-left: 26px;
   flex-wrap: wrap;
   column-gap: 100%;
   row-gap: 14px;
@@ -36,6 +36,10 @@
     text-decoration: none;
     color: var(--mainFontColor)
   }
+}
+
+.menumobile{
+  display: none;
 }
 
 .navPoint{
@@ -58,9 +62,7 @@
   background-color: #F0F0F0;
 }
 
-.menumobile{
-  display: none;
-}
+
 
 @media(max-width: 991px) {
   .sidemenuDesktop {
@@ -71,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 10px 6px 0;
+    margin: 17px 22px 0;
     h2{
       font-size: 1.2em;
       font-weight: 600;
@@ -79,6 +81,7 @@
     img{
       width: 100%;
       max-width: 40px;
+      cursor: pointer;
     }
   }
 }

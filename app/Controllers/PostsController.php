@@ -51,7 +51,7 @@ class PostsController extends BaseController {
         $formValidation = new FormValidation($formInput, $this->db);
 
         $formValidation->setRules([
-           'title' => 'required|min:10|max:64',
+           'title' => 'required|min:10|max:100',
             'body' => 'required|min:100'
         ]);
 

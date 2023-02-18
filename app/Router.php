@@ -20,6 +20,7 @@ class Router {
         $requestedController = 'App\\Controllers\\' . ucfirst(strtolower($url[0])) . 'Controller';
 
         if (!class_exists($requestedController)) {
+
             $this->controller = NotFoundController::class;
             return;
         }

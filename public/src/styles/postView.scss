@@ -22,13 +22,16 @@
     padding: 22px 0 0;
     margin: 12px 0 30px;
     border-radius: 2px;
+    @media (min-width: 992px){
+      padding-top: 30px;
+    }
 
     h3, h6, .postedAt {
       padding-left: 12px !important;
       padding-right: 12px !important;
       @media (min-width: 992px){
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding-left: 30px !important;
+        padding-right: 30px !important;
       }
     }
 
@@ -39,6 +42,7 @@
       @media (min-width: 992px){
         font-size: 1.5em;
         font-weight: 700;
+        padding-bottom: 12px;
       }
     }
 
@@ -54,7 +58,10 @@
     .postedAt{
       font-size: 0.8em;
       font-weight: 400;
-      margin-bottom: 12px;
+      padding-bottom: 12px;
+      @media (min-width: 992px){
+       padding-bottom: 22px;
+      }
     }
 
     img{
@@ -63,6 +70,11 @@
       border-radius: 6px;
 
     }
+  }
+
+  p{
+    line-height: 1.4;
+    margin-bottom: 30px;
   }
 }
 

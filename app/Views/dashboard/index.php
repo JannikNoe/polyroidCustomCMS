@@ -41,7 +41,7 @@
                                 </a>
                                 <div class="lastArticleBoxContentButtons">
                                     <button class="button"><a style="text-decoration: none; color: white;" href="/posts/edit/<?= $post->getId()?>/<?=$post->getSlug()?>">Edit Post</a></button>
-                                    <button class="button-second"><a style="text-decoration: none; color: white;" href="/posts/delete/<?= $post->getId()?>">Delete Post</a></button>
+                                    <button class="button-delete"><a style="text-decoration: none; color: white;" href="/posts/delete/<?= $post->getId()?>"><img src="/src/images/icons/delete_FILL1_wght400_GRAD0_opsz48.svg"></a></button>
                                 </div>
 
                             </div>
