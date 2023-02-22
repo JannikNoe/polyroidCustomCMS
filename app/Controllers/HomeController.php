@@ -9,6 +9,7 @@ use App\Models\User;
 
 class HomeController extends BaseController {
 
+    // ruft die Startseite mit den neuesten Posts aus der DB auf
     public function index() {
 
         $post = new Post($this->db);
@@ -17,6 +18,7 @@ class HomeController extends BaseController {
         $this->view->render('home/index', [
             'posts' => $posts
         ]);
+
 
     }
 }

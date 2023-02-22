@@ -3,7 +3,7 @@
 namespace App\Controllers;
 use App\Basecontroller;
 
-
+// Prüft, ob ein Benutzer angemeldet ist, lädt alle Posts des angemeldeten Benutzers und zeigt sie auf der Dashboard-Seite an.
 class DashboardController extends BaseController {
     public function index() {
 
@@ -15,8 +15,6 @@ class DashboardController extends BaseController {
         $this->user->find($this->user->getId());
 
         $posts = $this->user->getPosts();
-
-//        dd($posts);
 
         $this->view->render('dashboard/index', [
             'posts' => $posts

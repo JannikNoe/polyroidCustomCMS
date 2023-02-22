@@ -29,7 +29,7 @@
 
                 <input type="submit" class="button loginButton" placeholder="Anmelden" >
                 <br />
-                <a style="display: inline-block; margin-top: 30px; color: black; text-decoration: unset;" href="/register">Registrieren</a>
+                <a style="display: inline-block; margin-top: 14px; color: black; text-decoration: unset;" href="/register">Registrieren</a>
             </form>
         </div>
 

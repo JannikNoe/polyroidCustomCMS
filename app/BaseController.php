@@ -12,6 +12,8 @@ class BaseController {
     protected User $user;
     protected View $view;
 
+    // Datenbank initialisiert eine Datenbankverbindung (Database),
+    // eine Benutzer-Instanz (User) und eine View-Instanz (View) und speichert diese in geschützten Eigenschaften.
     public function __construct()
     {
         $this->db = new Database;
@@ -20,6 +22,7 @@ class BaseController {
 
     }
 
+    // leitet den Nutzer mit einem optionalen HTTP-Statuscode auf eine angegebene URL weiter
     protected function redirectTo(string $path, int $statusCode = 200)
     {
         http_response_code($statusCode);

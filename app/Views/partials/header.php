@@ -63,11 +63,11 @@
                             </div>
                             <div class="flex navPoint">
                                 <img src="/src/images/icons/rss_feed_FILL1_wght400_GRAD0_opsz48.svg" />
-                                <h6>Posts Übersicht</h6>
+                                <a href="/posts/overview"><h6>Posts Übersicht</h6></a>
                             </div>
                             <div class="flex navPoint">
                                 <img src="/src/images/icons/person_FILL1_wght400_GRAD0_opsz48.svg" />
-                                <h6>Nutzer</h6>
+                                <a href="/userlist"><h6>Nutzer</h6></a>
                             </div>
                             <div class="flex navPoint">
                                 <img src="/src/images/icons/settings_FILL1_wght400_GRAD0_opsz48.svg" />
@@ -105,13 +105,13 @@
                                     <img src="/src/images/icons/home_FILL0_wght400_GRAD0_opsz48.svg" />
                                     <a href="/dashboard"><h6>Dashboard</h6></a>
                                 </div>
-                                <div class="flex navPoint pointer">
+                                <div class="flex navPoint">
                                     <img src="/src/images/icons/rss_feed_FILL1_wght400_GRAD0_opsz48.svg" />
-                                    <h6>Posts Übersicht</h6>
+                                    <a href="/posts/overview"><h6>Posts Übersicht</h6></a>
                                 </div>
-                                <div class="flex navPoint pointer">
+                                <div class="flex navPoint">
                                     <img src="/src/images/icons/person_FILL1_wght400_GRAD0_opsz48.svg" />
-                                    <h6>Nutzer</h6>
+                                    <a href="/userlist"><h6>Nutzer</h6></a>
                                 </div>
                                 <div class="flex navPoint pointer">
                                     <img src="/src/images/icons/settings_FILL1_wght400_GRAD0_opsz48.svg" />

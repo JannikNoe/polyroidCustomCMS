@@ -12,6 +12,8 @@ use Exception;
 
 
 class LoginController extends BaseController {
+
+    // Prüft, ob ein Benutzer angemeldet ist, zeigt das Login-Formular an und überprüft, ob der eingegebene Benutzername und das Passwort korrekt sind, um den Benutzer einzuloggen
     public function index( Request $request)
     {
 

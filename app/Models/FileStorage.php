@@ -11,6 +11,7 @@ class FileStorage {
     private string $currentLocation;
     private string $generatedName;
 
+    // Ein Konstruktor, der die $file-Eigenschaft setzt und die anderen drei Eigenschaften mit Informationen aus dem hochgeladenen Datei-Array initialisiert
     public function __construct(array $file)
     {
         $this->file = $file;
@@ -19,11 +20,13 @@ class FileStorage {
         $this->generatedName = Str::token() . '.' . $this->extension;
     }
 
+    // Eine Getter-Methode, die den generierten Namen der hochgeladenen Datei zurückgibt
     public function getGeneratedName(): string
     {
         return $this->generatedName;
     }
 
+    // Eine Methode, die die hochgeladene Datei in einem bestimmten Ordner speichert.
     public function saveIn(string $folder): void
     {
         $destination = "{$folder}/{$this->generatedName}";
@@ -32,7 +35,7 @@ class FileStorage {
             throw new Exception('We encountered an error uploading the file.');
         }
     }
-
+    // Eine statische Methode, die eine Datei anhand ihres Pfades löscht
     public static function delete(string $path): bool
     {
         return unlink(ltrim($path, DIRECTORY_SEPARATOR));

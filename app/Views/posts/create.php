@@ -17,7 +17,7 @@
 
                     <div class="contentInput-wrapper">
                         <label for="title">Headline</label>
-                        <span class="post-requirements">Anforderungen: min 10 / max 64 Zeichen</span>
+                        <span class="post-requirements">Anforderungen: min 10 / max 64 Zeichen, keine Umlaute</span>
                         <textarea id="title" name="title" ></textarea>
                         <?php if (isset($errors['title'])): ?>
                             <div class="error"><?=$errors['title'][0]?></div>

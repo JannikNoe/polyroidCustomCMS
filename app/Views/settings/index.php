@@ -21,12 +21,12 @@
                         <div class="distance"></div>
                         <div class="username">
                             <h6>Username</h6>
-                            <p>Lorem Ipsum door</p>
+                            <p><?=$user->getUsername()?></p>
                         </div>
                         <hr/>
                         <div class="E-Mail-Adresse">
                             <h6>E-Mail-Adresse</h6>
-                            <p>LoremIpsum@lorem.com</p>
+                            <p><?=$user->getEmail()?></p>
                         </div>
                         <hr/>
                         <div class="E-Mail-Adresse">

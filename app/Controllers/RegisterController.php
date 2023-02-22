@@ -10,7 +10,7 @@ use App\Helpers\Session;
 use App\Request;
 use Exception;
 
-
+// Erlaubt einem Benutzer, ein neues Konto zu erstellen, indem er das Registrierungsformular ausfüllt und absendet.
 class RegisterController extends BaseController {
     public function index(Request $request) {
 
@@ -23,21 +23,19 @@ class RegisterController extends BaseController {
             return;
         }
 
-
-        // Post
         // Input Validieren
         $formInput = $request->getInput('post');
         $validation = new FormValidation($formInput, $this->db);
 
          $validation->setRules([
              'username' => 'required|min:3|max:64|available:users',
-             'email' => 'required|email|available:users', // mail ausgeklammert
+             'email' => 'required|email|available:users',
              'password' => 'required|min:6|max:64',
              'passwordAgain' => 'required|matches:password'
          ]);
 
          $validation->setMessages([
-            "passwordAgain.matches" => "You didn't repeat the password correctly"
+            "passwordAgain.matches" => "Sie haben das Passwort nicht richtig wiederholt."
          ]);
 
 
@@ -50,15 +48,14 @@ class RegisterController extends BaseController {
          }
 
 
-        // User Login
-
+        // Schickt Daten an die DB
          try {
              $this->user->register(
                  $formInput['username'],
                  $formInput['email'],
                  $formInput['password']
              );
-             Session::flash('success', '<div class="flashbox flashboxSuccess">Your Account is created. Bitte einloggen habibi</div>');
+             Session::flash('success', '<div class="flashbox flashboxSuccess">Dein Account wurde erfolgreich erstellt. Logge dich jetzt ein.</div>');
              $this->redirectTo('/login');
          } catch (Exception $e){
              $this->view->render('login/index', [
@@ -67,6 +64,5 @@ class RegisterController extends BaseController {
                  ]
              ]);
          }
-
     }
 }

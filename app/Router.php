@@ -5,13 +5,15 @@ namespace App;
 use App\Controllers\HomeController;
 use App\Controllers\NotFoundController;
 
+// Der Router ist eine Klasse, die URLs verarbeitet und entscheidet,
+// welcher Controller und welche Methode aufgerufen werden soll.
 class Router {
 
     private string $controller = HomeController::class;
     private string $method = 'index';
     private array $params = [];
 
-
+    //bereinigt und zerlegt die URL in ihre Bestandteile. Anschließend wird der angeforderte Controller und die angeforderte Methode aus den Bestandteilen der URL abgeleitet.
     public function __construct() {
 
         $url = $this->parseUrl();
@@ -36,6 +38,8 @@ class Router {
         $this->params = array_values($url);
     }
 
+
+    // wird verwendet, um die URL der aktuellen Anfrage zu bereinigen und in ihre Bestandteile zu zerlegen.
     private function parseUrl() {
         if (!isset($_GET['url'])) {
             return [];
@@ -48,15 +52,19 @@ class Router {
         return $url;
     }
 
-
+    // gibt den Namen des angeforderten Controllers als String zurück, der im Router-Objekt gespeichert ist.
     public function getRequestedController(): string {
         return $this->controller;
     }
 
+    // gibt den Namen der aufgerufenen Methode der angeforderten URL zurück, die im Router-Objekt gespeichert wurde.
     public function getRequestedMethod(): string {
         return $this->method;
     }
 
+    // gibt ein Array zurück, welches alle Parameter der URL enthält, die von der Anfrage stammen.
+    // Diese Parameter werden aus der URL extrahiert und in einem Array gespeichert.
+    // Das Array enthält dann in der Regel die Parameter, die nach dem Controller und der Methode in der URL kommen.
     public function getParams(): array {
         return $this->params;
     }

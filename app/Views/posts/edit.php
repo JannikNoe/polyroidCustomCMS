@@ -9,7 +9,7 @@
             <div class="col-sp-12 col-sd-12 row-sp-12">
                 <div class="mobile-note"><p>Die Redaktion empfiehlt die Bearbeitung von Posts an Desktop Devices vorzunehmen.</p></div>
 
-                <form method="post" action="/posts/edit" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
 
                     <?php if (isset($errors['root'])): ?>
                         <div class="error"><?=$errors['root']?></div>
@@ -17,7 +17,7 @@
 
                     <div class="contentInput-wrapper">
                         <label for="title">Headline</label>
-                        <span class="post-requirements">Anforderungen: min 10 / max 64 Zeichen</span>
+                        <span class="post-requirements">Anforderungen: min 10 / max 64 Zeichen keine Umlaute</span>
                         <textarea id="title" name="title"><?= $post->getTitle()?></textarea>
                         <?php if (isset($errors['title'])): ?>
                             <div class="error"><?=$errors['title'][0]?></div>
@@ -36,7 +36,7 @@
                     <div class="contentInput-wrapper">
                         <label for="image">Image</label>
                         <?php foreach ($post->getImages() as $image):?>
-                            <img src="<?= $image?>">
+                            <img style="width: 100%; max-width: 1300px;" src="<?= $image?>">
                         <?php endforeach;?>
                         <span class="post-requirements">Anforderungen: max 2mb | 1280 × 720</span>
                         <input type="file" id="image" name="image">

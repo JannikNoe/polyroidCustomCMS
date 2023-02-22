@@ -83,4 +83,12 @@
     display: flex;
     justify-content: right; } }
 
+@media (min-width: 992px) {
+  .contentInput-wrapper {
+    margin: 40px 0; }
+
+  .contentInput-wrapper .post-requirements {
+    margin-top: 10px;
+    margin-bottom: 20px; } }
+
 /*# sourceMappingURL=postcreate.css.map */

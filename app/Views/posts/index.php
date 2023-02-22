@@ -9,7 +9,7 @@
             </div>
 
             <div class="col-sp-12 col-sd-12 row-sp-12">
-                <div class="articleHeadline">
+                <div class="articleHeadline articleView">
                    <h6>Subtitle Placeholder</h6>
                     <h3><?= $post->getTitle()?></h3>
                     <div class="postedAt">Gepostet am: <?=$post->getCreatedAt() ?></div>
